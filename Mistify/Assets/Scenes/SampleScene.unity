@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 910567339456470518, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
       propertyPath: m_Name
-      value: Question
+      value: Answer
       objectReference: {fileID: 0}
     - target: {fileID: 910567339456470519, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
@@ -350,7 +350,7 @@ PrefabInstance:
     - target: {fileID: 3298912360244354528, guid: 57d6a51d91dfdf24ca3462646adbfd1b,
         type: 3}
       propertyPath: m_Name
-      value: Question Set
+      value: Question
       objectReference: {fileID: 0}
     - target: {fileID: 3298912360244354543, guid: 57d6a51d91dfdf24ca3462646adbfd1b,
         type: 3}
@@ -1061,7 +1061,7 @@ PrefabInstance:
     - target: {fileID: 910567339456470518, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
       propertyPath: m_Name
-      value: Question (3)
+      value: Answer
       objectReference: {fileID: 0}
     - target: {fileID: 910567339456470519, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
@@ -2299,7 +2299,7 @@ PrefabInstance:
     - target: {fileID: 910567339456470518, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
       propertyPath: m_Name
-      value: Question (1)
+      value: Answer
       objectReference: {fileID: 0}
     - target: {fileID: 910567339456470519, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
@@ -2378,7 +2378,7 @@ PrefabInstance:
     - target: {fileID: 910567339456470518, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
       propertyPath: m_Name
-      value: Question (2)
+      value: Asnwer
       objectReference: {fileID: 0}
     - target: {fileID: 910567339456470519, guid: 40e02ab45f8c6db41b6eee671cec747b,
         type: 3}
