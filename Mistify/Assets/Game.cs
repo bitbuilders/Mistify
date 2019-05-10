@@ -26,6 +26,18 @@ public class Game : MonoBehaviour
         UpdateText();
     }
 
+    private void Update()
+    {
+        if (Input.GetButtonDown("Cancel"))
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
+        }
+    }
+
     public void CheckCorrect(Button b)
     {
         Debug.ClearDeveloperConsole();
