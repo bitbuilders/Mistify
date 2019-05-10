@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEngine;
 
 public class GameIterator
 {
@@ -18,10 +19,12 @@ public class GameIterator
         Answers = Enumerable.Repeat("", 4).ToList();
 
         m_Quiz = quiz;
+        Init();
+    }
 
+    void Init()
+    {
         DoNextGenre();
-        DoNextTopic();
-        DoNextQuestion();
     }
 
     public void Next()
@@ -58,10 +61,12 @@ public class GameIterator
     void DoNextTopic()
     {
         TopicText = m_Quiz.SwitchTopic();
+        DoNextQuestion();
     }
 
     void DoNextGenre()
     {
         GenreText = m_Quiz.SwitchGenre();
+        DoNextTopic();
     }
 }
