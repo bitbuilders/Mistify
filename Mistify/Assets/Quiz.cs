@@ -19,6 +19,11 @@ public class Quiz : MonoBehaviour
         m_Genres.MoveNext();
     }
 
+    public GameIterator CreateGameIterator()
+    {
+        return new GameIterator(this);
+    }
+
     public string SwitchGenre()
     {
         m_Genres.MoveNext();

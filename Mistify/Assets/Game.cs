@@ -11,20 +11,19 @@ public class Game : MonoBehaviour
     [SerializeField] Text m_QuestionText = null;
     [SerializeField] List<Button> m_Answers = null;
 
-    Button m_Correct = null;
+    GameIterator m_GameIterator;
 
     private void Start()
     {
         m_Quiz.Init();
-
-        DoNextGenre();
-        DoNextTopic();
-        DoNextQuestion();
+        m_GameIterator = m_Quiz.CreateGameIterator();
+        UpdateText();
     }
 
     public void CheckCorrect(Button b)
     {
-        if (b == m_Correct)
+        Debug.ClearDeveloperConsole();
+        if (b.GetComponentInChildren<Text>().text == m_GameIterator.Correct)
         {
             print("Correct!");
         }
@@ -32,42 +31,34 @@ public class Game : MonoBehaviour
         {
             print("Incorrect");
         }
+
+        Next();
+        if (m_GameIterator.Finished)
+        {
+            Finish();
+        }
     }
 
     public void Next()
     {
-        if (m_Quiz.HasNextQuestion())
+        m_GameIterator.Next();
+        UpdateText();
+    }
+
+    void UpdateText()
+    {
+        m_GenreText.text = m_GameIterator.GenreText;
+        m_TopicText.text = m_GameIterator.TopicText;
+        m_QuestionText.text = m_GameIterator.QuestionText;
+        for (int i = 0; i < m_Answers.Count; i++)
         {
-            DoNextQuestion();
-        }
-        else if (m_Quiz.HasNextTopic())
-        {
-            DoNextTopic();
-        }
-        else if (m_Quiz.HasNextGenre())
-        {
-            DoNextGenre();
+            m_Answers[i].GetComponentInChildren<Text>().text = m_GameIterator.Answers[i];
         }
     }
 
-    void DoNextQuestion()
+    void Finish()
     {
-        m_QuestionText.text = m_Quiz.SwitchQuestionSet();
-        List<QuizLeaf> questions = m_Quiz.CreateQuestions();
-        for (int i = 0; i < questions.Count; i++)
-        {
-            m_Answers[i].GetComponentInChildren<Text>().text = questions[i].Title;
-            if (questions[i].CorrectAnswer) m_Correct = m_Answers[i];
-        }
-    }
+        print("Done!");
 
-    void DoNextTopic()
-    {
-        m_TopicText.text = m_Quiz.SwitchTopic();
-    }
-
-    void DoNextGenre()
-    {
-        m_GenreText.text = m_Quiz.SwitchGenre();
     }
 }
